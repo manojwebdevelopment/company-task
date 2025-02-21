@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Box</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .payment-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            border: 2px solid #c7c5c5;
+            position: relative;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .radio-btn {
+            position: absolute;
+            top: 20px;
+            left: 10px;
+            cursor: pointer;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border: 2px solid #008000;
+            border-radius: 50%;
+            outline: none;
+        }
+
+        .radio-btn:checked {
+            background-color: #008000;
+        }
+
+        .show {
+            display: none;
+        }
+
+        .title {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 16px;
+            width: 100%;
+            padding-left: 20px;
+        }
+
+        .top-right {
+            position: absolute;
+            right: 0;
+            margin-right: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .most-popular {
+            color: #008000;
+            font-weight: bold;
+        }
+
+        .price {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+
+        .discount {
+            font-size: 14px;
+            color: grey;
+            text-decoration: line-through;
+        }
+
+        .discount-rate {
+            font-size: 13px;
+            margin: 5px 0 0 40px;
+            font-weight: bold;
+            color: #0b0c0b;
+        }
+
+        .select-option {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .select-option .heading {
+            margin: 10px 0 -10px -15px;
+            display: flex;
+            justify-content: space-around;
+            font-size: small;
+        }
+
+        .size-color label {
+            margin-right: 10px;
+        }
+
+        select {
+            padding: 5px;
+            margin-top: 5px;
+            width: 100px;
+            background-color: #D5F0C1;
+        }
+        .bottom{
+            width: 370px;
+        }
+        .bottom-text{
+            position: relative;
+            display: flex;
+            justify-content: space-around;
+        }
+        .bottom-text .left-text{
+            position: absolute;
+            left: 0;
+            color: #085321;
+            font-weight: 600;
+        }
+        .bottom-text .right-text{
+            position: absolute;
+            right: 0;
+            font-weight: 600;
+        }
+        .bottom .btn{
+            margin-top: 50px;
+            color: white;
+            width: 370px;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #72BF78;
+            border: none;
+        }
+        .bottom .btn:hover{
+            color: #72BF78;
+            background-color: white;
+            border: 1px solid #72BF78;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="payment-box" onclick="toggleSelection(this)">
+        <input type="radio" name="payment" class="radio-btn" />
+        <div>
+            <div class="title">
+                <span>1 Pair</span>
+                <div class="top-right">
+                    <!-- <span class="most-popular">Most Popular</span> -->
+                    <span class="discount-rate">50% OFF</span>
+                </div>
+            </div>
+            <div class="price">DKK 195.00</div>
+            <div class="show">
+
+                <div class="select-option">
+                    <div class="heading">
+                        <p>Size</p>
+                        <p>Color</p>
+                    </div>
+                    <div class="size-color">
+                        <label>#1</label>
+                        <select>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                        </select>
+
+                        <select>
+                            <option>Black</option>
+                            <option>Red</option>
+                            <option>Blue</option>
+                        </select>
+                    </div>
+
+                    <div class="size-color">
+                        <label>#2</label>
+                        <select>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                        </select>
+
+                        <select>
+                            <option>Black</option>
+                            <option>Red</option>
+                            <option>Blue</option>
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="payment-box" onclick="toggleSelection(this)">
+        <input type="radio" name="payment" class="radio-btn" />
+        <div>
+            <div class="title">
+                <span>2 Pair</span>
+                <div class="top-right">
+                    <span class="most-popular">Most Popular</span>
+                    <span class="discount-rate">40% OFF</span>
+                </div>
+            </div>
+            <div class="price">DKK 345.00 <span class="discount">DKK 165.00</span></div>
+            <div class="show">
+
+                <div class="select-option">
+                    <div class="heading">
+                        <p>Size</p>
+                        <p>Color</p>
+                    </div>
+                    <div class="size-color">
+                        <label>#1</label>
+                        <select>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                        </select>
+
+                        <select>
+                            <option>Black</option>
+                            <option>Red</option>
+                            <option>Blue</option>
+                        </select>
+                    </div>
+
+                    <div class="size-color">
+                        <label>#2</label>
+                        <select>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                        </select>
+
+                        <select>
+                            <option>Black</option>
+                            <option>Red</option>
+                            <option>Blue</option>
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="payment-box" onclick="toggleSelection(this)">
+        <input type="radio" name="payment" class="radio-btn" />
+        <div>
+            <div class="title">
+                <span>3 Pair</span>
+                <div class="top-right">
+                    <!-- <span class="most-popular">Most Popular</span> -->
+                    <span class="discount-rate">60% OFF</span>
+                </div>
+            </div>
+            <div class="price">DKK 528.00 </div>
+            <div class="show">
+
+                <div class="select-option">
+                    <div class="heading">
+                        <p>Size</p>
+                        <p>Color</p>
+                    </div>
+                    <div class="size-color">
+                        <label>#1</label>
+                        <select>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                        </select>
+
+                        <select>
+                            <option>Black</option>
+                            <option>Red</option>
+                            <option>Blue</option>
+                        </select>
+                    </div>
+
+                    <div class="size-color">
+                        <label>#2</label>
+                        <select>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                        </select>
+
+                        <select>
+                            <option>Black</option>
+                            <option>Red</option>
+                            <option>Blue</option>
+                        </select>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <div class="bottom-text">
+            <p class="left-text">Free 2 Day Shipping</p>
+            <p class="right-text">Total: DKK 360.00</p>
+        </div>
+        <button type="submit" class="btn">+ Add to Cart</button>
+    </div>
+
+    <script>
+       function toggleSelection(paymentBox) {
+    let radioBtn = paymentBox.querySelector(".radio-btn");
+    let hiddenContent = paymentBox.querySelector(".show");
+
+    
+    document.querySelectorAll(".payment-box").forEach(box => {
+        box.style.backgroundColor = "white"; 
+        box.style.border = "2px solid #c7c5c5"; 
+        box.querySelector(".radio-btn").checked = false;
+        box.querySelector(".show").style.display = "none";
+    });
+
+    radioBtn.checked = true;
+
+    hiddenContent.style.display = "block";
+    paymentBox.style.backgroundColor = "#D5F0C1"; 
+    paymentBox.style.border = "2px solid #72BF78"; 
+}
+
+    </script>
+</body>
+
+</html>
